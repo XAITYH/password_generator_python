@@ -1,5 +1,6 @@
 import tkinter
 import customtkinter as CTk
+import password
 
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 
@@ -97,7 +98,7 @@ class App(CTk.CTk):
         
         self.appearance_mode_option_menu = CTk.CTkOptionMenu(
             master=self.settings_frame,
-            values=["System", "Dark", "Light"],
+            values=["Dark", "Light", "System"],
             command=self.change_apperance_mode_option_event
         )
         self.appearance_mode_option_menu.grid(
@@ -107,14 +108,30 @@ class App(CTk.CTk):
             pady=(10, 10)
         )
         
+        self.password_length_slider.set(12)
+        self.password_length_entry.insert(0, 12)
+        self.appearance_mode_option_menu.set("System")
+        
     def change_apperance_mode_option_event(self, new_appearence_mode):
         CTk.set_appearance_mode(new_appearence_mode)
         
-    def slider_event(self):
-        pass
+    def slider_event(self, value):
+        self.password_length_entry.delete(0, "end")
+        self.password_length_entry.insert(0, int(value))
+            
+    def get_characters(self):
+        chars = "".join(
+            self.cb_digits_var.get() + self.cb_lower_var.get() + self.cb_upper_var.get() + 
+            self.cb_symbol_var.get())
+        
+        return chars
         
     def set_password(self):
-        pass
+        self.entry_password.delete(0, "end")
+        self.entry_password.insert(0, password.create_new(
+            length=int(self.password_length_slider.get()),
+            characters=self.get_characters()
+        ))
         
 if __name__ == "__main__":
     app = App()
