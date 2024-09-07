@@ -95,6 +95,21 @@ class App(CTk.CTk):
         )
         self.cb_symbol.grid(row=2, column=3)
         
+        self.appearance_mode_option_menu = CTk.CTkOptionMenu(
+            master=self.settings_frame,
+            values=["System", "Dark", "Light"],
+            command=self.change_apperance_mode_option_event
+        )
+        self.appearance_mode_option_menu.grid(
+            row=3,
+            column=0,
+            columnspan=4,
+            pady=(10, 10)
+        )
+        
+    def change_apperance_mode_option_event(self, new_appearence_mode):
+        CTk.set_appearance_mode(new_appearence_mode)
+        
     def slider_event(self):
         pass
         
