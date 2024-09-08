@@ -1,1 +1,1 @@
-This project for practice was taken from this source: <a href="https://youtu.be/ibf2u-rVb6o?si=b9HAn0iYVMtqqc-d">youtube video (from ithobbies)</a>, and from <a href="https://github.com/ithobbies/Password-generator">github repository</a>
+This project for practice was taken from these sources: <a href="https://youtu.be/ibf2u-rVb6o?si=b9HAn0iYVMtqqc-d">youtube video (from ithobbies)</a> and <a href="https://github.com/ithobbies/Password-generator">github repository</a>
